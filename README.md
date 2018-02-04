@@ -2,6 +2,9 @@
 
 **A cryptocurrency status line plugin for [Hyper](https://hyper.is/).** It displays a chosen cryptocurrency's price and 24h percentage changes.
 
+![](preview.png)
+
+
 All the data comes from [coinmarketcap](https://coinmarketcap.com/) API. 
 
 ## Installation
