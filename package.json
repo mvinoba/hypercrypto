@@ -2,6 +2,7 @@
   "name": "hypercrypto",
   "version": "0.1.1",
   "description": "Crypto status line for Hyper Terminal",
+  "repository": "mvinoba/hypercrypto",
   "main": "index.js",
   "keywords": [
     "hyper .app",
