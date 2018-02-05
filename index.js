@@ -9,25 +9,6 @@ exports.decorateConfig = (config) => {
         background: colorBackground.lighten(0.3).string()
     };
 
-    const configColors = Object.assign({
-        black: '#000000',
-        red: '#ff0000',
-        green: '#33ff00',
-        yellow: '#ffff00',
-        blue: '#0066ff',
-        magenta: '#cc00ff',
-        cyan: '#00ffff',
-        white: '#d0d0d0',
-        lightBlack: '#808080',
-        lightRed: '#ff0000',
-        lightGreen: '#33ff00',
-        lightYellow: '#ffff00',
-        lightBlue: '#0066ff',
-        lightMagenta: '#cc00ff',
-        lightCyan: '#00ffff',
-        lightWhite: '#ffffff'
-    }, config.colors);
-
     const hyperStatusLine = Object.assign({
         footerTransparent: true,
     }, config.hyperStatusLine);
@@ -105,9 +86,7 @@ exports.decorateHyper = (Hyper, { React }) => {
                   coinSymbol: responseJson[0].symbol,
                   priceUsd: responseJson[0].price_usd,
                   change24: responseJson[0].percent_change_24h
-                }, function() {
-                  // do something with new state
-                });
+                }, function() {});
               })
               .catch((error) => {
                 console.error(error);
