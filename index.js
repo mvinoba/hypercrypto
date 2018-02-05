@@ -46,10 +46,11 @@ exports.decorateConfig = (config) => {
                 font-size: 12px;
                 height: 30px;
                 background-color: ${colors.background};
-                opacity: ${hyperStatusLine.footerTransparent ? '0.5' : '1'};
+                opacity: ${hyperStatusLine.footerTransparent ? '0.8' : '1'};
                 cursor: default;
                 -webkit-user-select: none;
                 transition: opacity 250ms ease;
+                flexShrink: '0';
             }
             .footer_footer:hover {
                 opacity: 1;
@@ -73,25 +74,6 @@ exports.decorateConfig = (config) => {
             }
             .footer_footer .component_item:first-of-type {
                 margin-left: 0;
-            }
-            .footer_footer .item_clickable:hover {
-                text-decoration: underline;
-                cursor: pointer;
-            }
-            .footer_footer .item_icon:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 14px;
-                height: 100%;
-                -webkit-mask-repeat: no-repeat;
-                -webkit-mask-position: 0 center;
-                background-color: ${colors.foreground};
-            }
-            .footer_footer .item_number {
-                font-size: 10.5px;
-                font-weight: 500;
             }
             .footer_footer .item_cwd {
                 padding-left: 0px;
