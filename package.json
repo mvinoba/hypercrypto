@@ -1,6 +1,6 @@
 {
   "name": "hypercrypto",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Cryptocurrency status line for Hyper Terminal",
   "repository": "mvinoba/hypercrypto",
   "main": "index.js",
