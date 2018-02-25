@@ -6,12 +6,12 @@ exports.decorateConfig = (config) => {
     const colorBackground = color(config.backgroundColor || '#000');
     const colors = {
         foreground: colorForeground.string(),
-        background: colorBackground.lighten(0.3).string()
-    };
+        background: colorBackground.lighten(0.3).string(),
+      };
 
     const hyperStatusLine = Object.assign({
         footerTransparent: true,
-    }, config.hyperStatusLine);
+      }, config.hyperStatusLine);
 
     return Object.assign({}, config, {
         css: `
@@ -59,67 +59,66 @@ exports.decorateConfig = (config) => {
             .footer_footer .item_cwd {
                 padding-left: 0px;
             }
-        `
-    });
-};
-
+        `,
+      });
+  };
 
 exports.decorateHyper = (Hyper, { React }) => {
     return class extends React.PureComponent {
-        constructor(props) {
-            super(props);
+      constructor(props) {
+        super(props);
 
-            this.state = {
-                coin: coinjson['coin'],
-                coinSymbol: '',
-                priceUsd: '',
-                change24: '',
-            }
-        }
+        this.state = {
+            coin: coinjson['coin'],
+            coinSymbol: '',
+            priceUsd: '',
+            change24: '',
+          };
+      }
 
-        getData() {
-            return fetch('https://api.coinmarketcap.com/v1/ticker/' + this.state.coin)
-              .then((response) => response.json())
-              .then((responseJson) => {
-                this.setState({
-                  db: responseJson[0],
-                  coinSymbol: responseJson[0].symbol,
-                  priceUsd: responseJson[0].price_usd,
-                  change24: responseJson[0].percent_change_24h
-                }, function() {});
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-        }
+      getData() {
+        return fetch('https://api.coinmarketcap.com/v1/ticker/' + this.state.coin)
+          .then((response) => response.json())
+          .then((responseJson) => {
+            this.setState({
+              db: responseJson[0],
+              coinSymbol: responseJson[0].symbol,
+              priceUsd: responseJson[0].price_usd,
+              change24: responseJson[0].percent_change_24h,
+            }, function () {});
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
 
-        render() {
-            const { customChildren } = this.props
-            const existingChildren = customChildren ? customChildren instanceof Array ? customChildren : [customChildren] : [];
+      render() {
+        const { customChildren } = this.props;
+        const existingChildren = customChildren ? customChildren instanceof Array ? customChildren : [customChildren] : [];
 
-            return (
-                React.createElement(Hyper, Object.assign({}, this.props, {
-                    customInnerChildren: existingChildren.concat(React.createElement('footer', { className: 'footer_footer' },
-                        React.createElement('div', { className: 'footer_group group_overflow' },
-                            React.createElement('div', { className: 'component_component component_cwd' },
-                                React.createElement('div', { className: 'component_item item_cwd'}, this.state.coinSymbol),
-                                React.createElement('div', { className: 'component_item item_cwd'}, this.state.priceUsd + "USD"),
-                                React.createElement('div', { className: 'component_item item_cwd', style: {color: this.state.change24 > 0 ? 'LawnGreen' : 'red'}}, this.state.change24 + "%"),
-                            )
-                        ),
-                    ))
-                }))
-            );
-        }
+        return (
+            React.createElement(Hyper, Object.assign({}, this.props, {
+                customInnerChildren: existingChildren.concat(React.createElement('footer', { className: 'footer_footer' },
+                    React.createElement('div', { className: 'footer_group group_overflow' },
+                        React.createElement('div', { className: 'component_component component_cwd' },
+                            React.createElement('div', { className: 'component_item item_cwd' }, this.state.coinSymbol),
+                            React.createElement('div', { className: 'component_item item_cwd' }, this.state.priceUsd + 'USD'),
+                            React.createElement('div', { className: 'component_item item_cwd', style: { color: this.state.change24 > 0 ? 'LawnGreen' : 'red' } }, this.state.change24 + '%'),
+                        )
+                    ),
+                )),
+              }))
+        );
+      }
 
-        componentDidMount() {
-            this.interval = setInterval(() => {
-                this.getData();
-            }, 100);
-        }
+      componentDidMount() {
+        this.interval = setInterval(() => {
+            this.getData();
+          }, 100);
+      }
 
-        componentWillUnmount() {
-            clearInterval(this.interval);
-        }
+      componentWillUnmount() {
+        clearInterval(this.interval);
+      }
     };
-};
+  };
