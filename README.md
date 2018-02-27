@@ -1,4 +1,4 @@
-# hypercrypto [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/hypercrypto)
+# hypercrypto [![npm](https://img.shields.io/npm/dt/hypercrypto.svg)](https://www.npmjs.com/package/hypercrypto)
 
 
 **A cryptocurrency status line plugin for [Hyper](https://hyper.is/).** It displays a chosen cryptocurrency's price and 24h percentage changes.
