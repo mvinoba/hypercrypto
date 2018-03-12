@@ -114,7 +114,7 @@ exports.decorateHyper = (Hyper, { React }) => {
       componentDidMount() {
         this.interval = setInterval(() => {
             this.getData();
-          }, 100);
+          }, 1000);
       }
 
       componentWillUnmount() {
