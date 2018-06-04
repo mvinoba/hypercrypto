@@ -28,7 +28,7 @@ or, if you are using the plugin manager [`hpm-cli`](https://github.com/zeit/hpm)
 ## Configuration
 
 
-Bitcoin is the default hypercrypto's currency, to change it you can edit the configuration json file at `.hyper_plugins/node_modules/hypercrypto/coin.json`. For example, changing it to Monero would mean editing the json to:
+Bitcoin is the default hypercrypto's currency, to change it you can edit the configuration json file at `.hyper_plugins/node_modules/hypercrypto/coin.json`. For example, changing it to [Monero](http://www.monero.cc/) would mean editing the json to:
 
 ```json
 {
